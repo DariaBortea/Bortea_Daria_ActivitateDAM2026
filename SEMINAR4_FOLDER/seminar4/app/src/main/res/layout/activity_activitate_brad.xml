@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivitateBrad">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adaug brad nou"
+        android:textSize="24sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="inaltime in metri:"
+        android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/inaltime_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="ex: 2.10"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="pret: "
+        android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/pret_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="ex: 300.0"/>
+    <!-- checkbox esteadult-->
+
+    <CheckBox
+        android:id="@+id/esteAdult_cb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" Este brad adult? "
+        android:layout_marginTop="10dp"/>
+    <!-- Switchu-->
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/areSuport_sw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" Are Suport Inclus? "/>
+    <!-- spinnerul-->
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
