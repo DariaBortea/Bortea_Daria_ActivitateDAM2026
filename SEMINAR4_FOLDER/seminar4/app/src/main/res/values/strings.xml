@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">seminar4</string>
+    <string-array name="tipuri_brad">
+        <item>Brad argintiu</item>
+        <item>Molid</item>
+        <item>Pin</item>
+        <item>Zada</item>
+    </string-array>
 </resources>

@@ -1,60 +1,43 @@
 package com.example.seminar4;
 
-public class Brad {
-    double inaltime;
-    double pret;
-    boolean esteAdult;
-    boolean areSuport;
-    String tip;
+import java.io.Serializable;
 
-    public  Brad(){};
-    public Brad(double _inaltime, double _pret, boolean _esteAdult, boolean _areSuport, String _tip){
-        this.inaltime=_inaltime;
-        this.tip=_tip;
-        this.pret=_pret;
-        this.esteAdult=_esteAdult;
-        this.areSuport=_areSuport;
-    }
+public class Brad implements Serializable {
+    private double inaltime;
+    private double pret;
+    private boolean esteAdult;
+    private boolean areSuport;
+    private String tip;
+    private boolean artificial;
+    private float rating;
 
-    public double getInaltime() {
-        return inaltime;
-    }
+    public Brad() {}
 
-    public void setInaltime(double inaltime) {
+    public Brad(double inaltime, double pret, boolean esteAdult, boolean areSuport,
+                String tip, boolean artificial, float rating) {
         this.inaltime = inaltime;
-    }
-
-    public double getPret() {
-        return pret;
-    }
-
-    public void setPret(double pret) {
         this.pret = pret;
-    }
-
-    public boolean isEsteAdult() {
-        return esteAdult;
-    }
-
-    public void setEsteAdult(boolean esteAdult) {
         this.esteAdult = esteAdult;
-    }
-
-    public boolean isAreSuport() {
-        return areSuport;
-    }
-
-    public void setAreSuport(boolean areSuport) {
         this.areSuport = areSuport;
-    }
-
-    public String getTip() {
-        return tip;
-    }
-
-    public void setTip(String tip) {
         this.tip = tip;
+        this.artificial = artificial;
+        this.rating = rating;
     }
+
+    public double getInaltime() { return inaltime; }
+    public void setInaltime(double inaltime) { this.inaltime = inaltime; }
+    public double getPret() { return pret; }
+    public void setPret(double pret) { this.pret = pret; }
+    public boolean isEsteAdult() { return esteAdult; }
+    public void setEsteAdult(boolean esteAdult) { this.esteAdult = esteAdult; }
+    public boolean isAreSuport() { return areSuport; }
+    public void setAreSuport(boolean areSuport) { this.areSuport = areSuport; }
+    public String getTip() { return tip; }
+    public void setTip(String tip) { this.tip = tip; }
+    public boolean isArtificial() { return artificial; }
+    public void setArtificial(boolean artificial) { this.artificial = artificial; }
+    public float getRating() { return rating; }
+    public void setRating(float rating) { this.rating = rating; }
 
     @Override
     public String toString() {
@@ -64,6 +47,8 @@ public class Brad {
                 ", esteAdult=" + esteAdult +
                 ", areSuport=" + areSuport +
                 ", tip='" + tip + '\'' +
+                ", artificial=" + artificial +
+                ", rating=" + rating +
                 '}';
     }
 }
