@@ -52,3 +52,4 @@ public class Brad implements Serializable {
                 '}';
     }
 }
+//seminar 5

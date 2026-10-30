@@ -14,17 +14,38 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView tvRezultat;
+    private final ArrayList<Brad> listaBrazi = new ArrayList<>();
 
-    private final ActivityResultLauncher<Intent> launcher =
+
+    private final ActivityResultLauncher<Intent> launcherAdaugare =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
                 if (result.getResultCode() == RESULT_OK && result.getData() != null) {
                     Brad brad = (Brad) result.getData().getSerializableExtra("brad");
                     if (brad != null) {
-                        tvRezultat.setText(brad.toString());
+                        listaBrazi.add(brad);
+                        tvRezultat.setText("Ultimul brad: " + brad
+                                + "\n\nTotal brazi: " + listaBrazi.size());
                         Toast.makeText(this, brad.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+
+
+    @SuppressWarnings("unchecked")
+    private final ActivityResultLauncher<Intent> launcherLista =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+                if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                    ArrayList<Brad> actualizata =
+                            (ArrayList<Brad>) result.getData().getSerializableExtra("lista");
+                    if (actualizata != null) {
+                        listaBrazi.clear();
+                        listaBrazi.addAll(actualizata);
+                        tvRezultat.setText("Total brazi: " + listaBrazi.size());
                     }
                 }
             });
@@ -43,11 +64,18 @@ public class MainActivity extends AppCompatActivity {
         tvRezultat = findViewById(R.id.tvRezultat);
         Button btnAdauga = findViewById(R.id.btnAdauga);
         Button btnAdaugaAI = findViewById(R.id.btnAdaugaAI);
+        Button btnLista = findViewById(R.id.btnLista);
 
         btnAdauga.setOnClickListener(v ->
-                launcher.launch(new Intent(MainActivity.this, ActivitateBrad.class)));
+                launcherAdaugare.launch(new Intent(MainActivity.this, ActivitateBrad.class)));
 
         btnAdaugaAI.setOnClickListener(v ->
-                launcher.launch(new Intent(MainActivity.this, ActivitateAdaugare.class)));
+                launcherAdaugare.launch(new Intent(MainActivity.this, ActivitateAdaugare.class)));
+
+        btnLista.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ListaBrazi.class);
+            intent.putExtra("lista", listaBrazi);
+            launcherLista.launch(intent);
+        });
     }
 }
